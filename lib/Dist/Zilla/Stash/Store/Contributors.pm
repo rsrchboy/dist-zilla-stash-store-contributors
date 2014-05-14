@@ -4,6 +4,9 @@ package Dist::Zilla::Stash::Store::Contributors;
 
 use Moose;
 use namespace::autoclean;
+use MooseX::AttributeShortcuts;
+
+with 'Dist::Zilla::Role::Store';
 
 
 __PACKAGE__->meta->make_immutable;
