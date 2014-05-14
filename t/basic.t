@@ -6,6 +6,7 @@ use Test::Moose::More;
 
 use aliased 'Dist::Zilla::Stash::Store::Contributors';
 use aliased 'Dist::Zilla::Role::ContributorStore::Consumer';
+use aliased 'Dist::Zilla::Role::ContributorStore::Provider';
 
 validate_class Contributors() => (
     does       => [ 'Dist::Zilla::Role::Store' ],
@@ -26,7 +27,10 @@ validate_role Consumer() => (
             handles  => [ '_contributors' ],
         },
     ],
+);
 
+validate_role Provider() => (
+	required_methods => [ 'contributors_list' ],
 );
 
 done_testing;
